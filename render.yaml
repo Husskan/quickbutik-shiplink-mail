@@ -2,7 +2,7 @@ services:
   - type: web
     name: quickbutik-shiplink-mail
     runtime: node
-    plan: starter
+    plan: free
     buildCommand: npm install
     startCommand: npm start
     envVars:
