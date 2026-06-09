@@ -180,6 +180,10 @@ app.get('/', (req, res) => {
   res.send('Shiplink mail webhook is running.');
 });
 
+app.get(['/quickbutik/order', '/quickbutik/order/:secret'], (req, res) => {
+  res.send('Quickbutik order webhook is ready.');
+});
+
 app.post(['/quickbutik/order', '/quickbutik/order/:secret'], async (req, res, next) => {
   try {
     assertSecret(req);
