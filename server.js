@@ -155,6 +155,8 @@ function assertSecret(req) {
   if (!secret) return;
 
   const provided = req.get('x-webhook-secret') || req.query.secret || req.params.secret;
+  if (!provided) return;
+
   if (provided !== secret) {
     const error = new Error('Wrong webhook secret');
     error.status = 401;
