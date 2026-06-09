@@ -1,0 +1,58 @@
+services:
+  - type: web
+    name: quickbutik-shiplink-mail
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: WEBHOOK_SECRET
+        sync: false
+      - key: CONSIGNER_TYPE
+        value: company
+      - key: CONSIGNER_NAME
+        value: Microcement Stockholm AB
+      - key: CONSIGNER_ADDRESS1
+        value: Vikingavägen 19
+      - key: CONSIGNER_ADDRESS2
+        value: ""
+      - key: CONSIGNER_POSTCODE
+        value: 14148
+      - key: CONSIGNER_CITY
+        value: Huddinge
+      - key: CONSIGNER_COUNTRY_CODE
+        value: SE
+      - key: CONSIGNER_CONTACT
+        value: Daniel Örberg
+      - key: CONSIGNER_PHONE
+        value: 0708243456
+      - key: EMAIL_SHIPPING_DOCS
+        value: danne@microcementsthlm.se
+      - key: DEFAULT_SHIPMENT_TYPE
+        value: parcel
+      - key: DEFAULT_SHIPMENT_QUANTITY
+        value: 1
+      - key: DEFAULT_SHIPMENT_WEIGHT
+        value: 1
+      - key: DEFAULT_SHIPMENT_LENGTH
+        value: 30
+      - key: DEFAULT_SHIPMENT_WIDTH
+        value: 30
+      - key: DEFAULT_SHIPMENT_HEIGHT
+        value: 10
+      - key: SMTP_HOST
+        value: send.one.com
+      - key: SMTP_PORT
+        value: 465
+      - key: SMTP_SECURE
+        value: true
+      - key: SMTP_USER
+        value: danne@microcementsthlm.se
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_FROM
+        value: Microcement Stockholm <danne@microcementsthlm.se>
+      - key: MAIL_TO
+        value: danne@microcementsthlm.se
