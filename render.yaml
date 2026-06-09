@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: shiplinkmail
+    name: shipmailorder
     runtime: node
     plan: free
     buildCommand: npm install
