@@ -154,7 +154,7 @@ function assertSecret(req) {
   const secret = process.env.WEBHOOK_SECRET;
   if (!secret) return;
 
-  const provided = req.get('x-webhook-secret') || req.query.secret;
+  const provided = req.get('x-webhook-secret') || req.query.secret || req.params.secret;
   if (provided !== secret) {
     const error = new Error('Wrong webhook secret');
     error.status = 401;
@@ -178,7 +178,7 @@ app.get('/', (req, res) => {
   res.send('Shiplink mail webhook is running.');
 });
 
-app.post('/quickbutik/order', async (req, res, next) => {
+app.post(['/quickbutik/order', '/quickbutik/order/:secret'], async (req, res, next) => {
   try {
     assertSecret(req);
 
